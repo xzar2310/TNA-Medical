@@ -1,0 +1,22 @@
+{
+  "Index": {
+    "title": "Premium Medical Supplements",
+    "description": "Trustworthy, clinically-backed supplements for your health.",
+    "shopNow": "Shop Now"
+  },
+  "Product": {
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "ingredients": "Ingredients",
+    "certifications": "Certifications"
+  },
+  "Compliance": {
+    "pdpaTitle": "We value your privacy",
+    "pdpaMessage": "We use cookies to improve your experience and for marketing. By continuing to use our site, you accept our Privacy Policy.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "fdaApproved": "FDA Approved",
+    "gmpCertified": "GMP Certified",
+    "isoCertified": "ISO 9001 Certified"
+  }
+}

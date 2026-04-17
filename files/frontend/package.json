@@ -1,0 +1,92 @@
+{
+  "name": "tna-supplement-frontend",
+  "version": "1.0.0",
+  "description": "TNA Co., Ltd — Medical Supplement E-Commerce Frontend",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test",
+    "format": "prettier --write .",
+    "analyze": "ANALYZE=true next build"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.5",
+
+    "next-auth": "^5.0.0-beta.19",
+    "next-intl": "^3.14.1",
+    "next-pwa": "^5.6.0",
+
+    "tailwindcss": "^3.4.4",
+    "@tailwindcss/typography": "^0.5.13",
+    "@tailwindcss/forms": "^0.5.7",
+    "tailwind-merge": "^2.3.0",
+    "clsx": "^2.1.1",
+
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-tabs": "^1.0.4",
+    "@radix-ui/react-toast": "^1.1.5",
+    "@radix-ui/react-slider": "^1.1.2",
+    "@radix-ui/react-switch": "^1.0.3",
+    "@radix-ui/react-accordion": "^1.1.2",
+    "lucide-react": "^0.383.0",
+
+    "zustand": "^4.5.2",
+    "@tanstack/react-query": "^5.40.0",
+    "@tanstack/react-query-devtools": "^5.40.0",
+
+    "react-hook-form": "^7.51.5",
+    "zod": "^3.23.8",
+    "@hookform/resolvers": "^3.6.0",
+
+    "axios": "^1.7.2",
+
+    "@stripe/react-stripe-js": "^2.7.1",
+    "@stripe/stripe-js": "^3.5.0",
+
+    "framer-motion": "^11.2.11",
+
+    "chart.js": "^4.4.3",
+    "react-chartjs-2": "^5.2.0",
+
+    "contentlayer": "^0.3.4",
+    "next-contentlayer": "^0.3.4",
+
+    "date-fns": "^3.6.0",
+    "numeral": "^2.0.6",
+    "@next/bundle-analyzer": "^14.2.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/node": "^20.14.2",
+    "@types/numeral": "^2.0.5",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.3",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "prettier": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "vitest": "^1.6.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@playwright/test": "^1.44.1"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
