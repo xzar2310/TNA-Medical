@@ -26,20 +26,17 @@ export default function Navbar({ locale }: NavbarProps) {
   return (
     <>
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-orange-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 h-32 flex items-center justify-between gap-4">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex-shrink-0 flex items-center gap-2">
+          <Link href={`/${locale}`} className="flex-shrink-0 flex items-center">
             <Image 
               src="/images/tna-logo.png" 
-              alt="TNA Medical" 
-              width={48} 
-              height={48} 
-              className="h-10 w-auto"
+              alt="TNA Medical — Healthcare for All" 
+              width={320} 
+              height={100} 
+              className="h-16 w-auto scale-[2.0] origin-left ml-4"
               priority
             />
-            <span className="font-display font-extrabold text-xl text-orange-600 tracking-tight">
-              TNA<span className="text-gray-900">Supplement</span>
-            </span>
           </Link>
 
           {/* Desktop Nav */}

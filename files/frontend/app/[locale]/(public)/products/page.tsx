@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { MOCK_PRODUCTS, CATEGORIES } from '@/lib/mockProducts';
+import { useProductStore } from '@/lib/store/productStore';
 import ProductCard from '@/components/product/ProductCard';
 import { Search } from 'lucide-react';
 
@@ -10,12 +10,15 @@ export default function ProductsPage({
 }: {
   params: { locale: 'en' | 'th' };
 }) {
+  const products = useProductStore((s) => s.products);
+  const categories = useProductStore((s) => s.categories);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [search, setSearch] = useState('');
 
-  const filtered = MOCK_PRODUCTS.filter((p) => {
+  const filtered = products.filter((p) => {
     const matchesCat = selectedCategory === 'All' || p.category === selectedCategory;
-    const matchesSearch = search === '' ||
+    const matchesSearch =
+      search === '' ||
       p.name_en.toLowerCase().includes(search.toLowerCase()) ||
       p.name_th.includes(search);
     return matchesCat && matchesSearch;
@@ -27,7 +30,7 @@ export default function ProductsPage({
       <div className="bg-gradient-to-r from-orange-500 to-orange-400 py-12 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="font-display text-4xl font-extrabold text-white mb-2">Our Products</h1>
-          <p className="text-orange-100">Premium supplements, clinically backed & FDA certified</p>
+          <p className="text-orange-100">Premium supplements, clinically backed for your health</p>
         </div>
       </div>
 
@@ -45,7 +48,7 @@ export default function ProductsPage({
             />
           </div>
           <div className="flex gap-2 flex-wrap">
-            {CATEGORIES.map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}

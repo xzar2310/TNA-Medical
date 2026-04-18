@@ -2,10 +2,9 @@
 
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { MOCK_PRODUCTS } from '@/lib/mockProducts';
+import { useProductStore } from '@/lib/store/productStore';
 import { useCartStore } from '@/lib/store/cartStore';
 import IngredientPanel from '@/components/product/IngredientPanel';
-import TrustBadges from '@/components/common/TrustBadges';
 import { ShoppingCart, Shield, Star, Minus, Plus, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -15,7 +14,7 @@ export default function ProductDetailPage({
 }: {
   params: { locale: 'en' | 'th'; slug: string };
 }) {
-  const product = MOCK_PRODUCTS.find((p) => p.slug === slug);
+  const product = useProductStore((s) => s.products.find((p) => p.slug === slug));
   if (!product) notFound();
 
   const addItem = useCartStore((s) => s.addItem);
@@ -143,7 +142,6 @@ export default function ProductDetailPage({
 
           {/* Trust */}
           <div className="mt-6">
-            <TrustBadges />
           </div>
         </div>
       </div>

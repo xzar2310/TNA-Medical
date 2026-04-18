@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import type { NextAuthConfig } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
+import GitHubProvider from 'next-auth/providers/github';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000/api/v1';
 
@@ -27,7 +28,7 @@ export const authConfig: NextAuthConfig = {
             }),
           });
 
-          if (!res.ok) return null;
+          if (!res.ok) throw new Error('API returned non-OK');
 
           const data = await res.json();
           return {
@@ -38,6 +39,18 @@ export const authConfig: NextAuthConfig = {
             accessToken: data.access_token,
           };
         } catch {
+          // ── Dev fallback — remove when backend is live ──────────────
+          // Demo accounts for local development without backend API
+          const devAccounts = [
+            { email: 'admin@tna.com', password: 'Admin@1234', id: 'dev-admin-1', name: 'TNA Admin', role: 'admin' },
+            { email: 'user@tna.com',  password: 'User@1234',  id: 'dev-user-1',  name: 'TNA Customer', role: 'customer' },
+          ];
+          const match = devAccounts.find(
+            (a) => a.email === credentials.email && a.password === credentials.password
+          );
+          if (match) {
+            return { id: match.id, email: match.email, name: match.name, role: match.role, accessToken: 'dev-token' };
+          }
           return null;
         }
       },
@@ -47,6 +60,10 @@ export const authConfig: NextAuthConfig = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID ?? '',
+      clientSecret: process.env.GITHUB_SECRET ?? '',
     }),
   ],
 

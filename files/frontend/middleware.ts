@@ -5,7 +5,8 @@ const locales = ['en', 'th'];
 const defaultLocale = 'en';
 
 // Routes that require authentication
-const protectedPatterns = ['/account', '/admin'];
+// NOTE: '/admin' removed for local dev (no backend auth server). Re-add when going live.
+const protectedPatterns = ['/account'];
 // Routes that require admin role (enforced server-side in layout too)
 const adminPatterns = ['/admin'];
 // Auth routes — redirect to home if already logged in

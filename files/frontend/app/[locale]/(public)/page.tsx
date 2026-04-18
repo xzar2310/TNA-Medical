@@ -1,7 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import Image from 'next/image';
-import TrustBadges from '@/components/common/TrustBadges';
 import { MOCK_PRODUCTS } from '@/lib/mockProducts';
 import FeaturedProducts from './FeaturedProducts';
 import { ShieldCheck, Truck, RefreshCcw, HeartPulse } from 'lucide-react';
@@ -22,10 +21,6 @@ export default async function HomePage({
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-orange-100/40 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 text-sm font-semibold px-4 py-2 rounded-full mb-6 border border-orange-200">
-              <HeartPulse className="w-4 h-4" />
-              Thai FDA Certified Supplements
-            </div>
             <h1 className="font-display text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
               {t('title')}
             </h1>
@@ -61,16 +56,13 @@ export default async function HomePage({
 
       {/* ── Trust Badges ──────────────────────────────────────────── */}
       <section className="py-10 px-4 bg-white border-y border-orange-100">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-8">
-          <TrustBadges />
-        </div>
       </section>
 
       {/* ── Benefits ──────────────────────────────────────────────── */}
       <section className="py-12 px-4 bg-orange-50">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { icon: ShieldCheck, title: 'FDA Certified', desc: 'All products registered with Thai FDA (อย.)' },
+            { icon: ShieldCheck, title: 'Safe & Pure', desc: 'Highest quality ingredients for your wellness' },
             { icon: Truck, title: 'Free Delivery', desc: 'Free shipping on orders over ฿990' },
             { icon: RefreshCcw, title: '30-Day Returns', desc: 'Hassle-free return policy' },
             { icon: HeartPulse, title: 'Clinically Backed', desc: 'PubMed-referenced ingredients' },

@@ -5,6 +5,12 @@ import '../globals.css';
 import PDPABanner from '@/components/common/PDPABanner';
 import Navbar from '@/components/layout/Navbar';
 import Providers from './Providers';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'TNA Medical — Healthcare for All',
+  description: 'Trustworthy, clinically-backed medical supplements for your health.',
+};
 
 const kanit = Kanit({
   weight: ['400', '500', '600', '700', '800'],
